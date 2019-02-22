@@ -21,8 +21,8 @@
 
 		if (passCheck == "") {
 			document.document.getElementById("passCheckText").innerHTML = ""
-		} else if (student_pw != student_pw1) {
-			document.document.getElementById("passCheckText").innerHTML = "<b><font color=blue size=5pt"> not ok pw. </font></b>"
+		} else if (student_pas != student_pass1) {
+			document.document.getElementById("passCheckText").innerHTML = "<b><font color=blue size=5pt> not ok pw. </font></b>"
 		} else {
 			document.document.getElementById("passCheckText").innerHTML = "<b><font color=red size=5pt> OK pw. </font></b>"
 		}
