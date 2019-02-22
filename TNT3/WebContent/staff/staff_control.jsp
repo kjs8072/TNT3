@@ -2,8 +2,8 @@
    pageEncoding="EUC-KR"%>
 <%@ page import="java.util.ArrayList, TNT_Bean.*, TNT_DAO.*"%>
 
-<jsp:useBean id="bean" class="TNT_Bean.StudentBean"></jsp:useBean>
-<jsp:useBean id="TNT" class="TNT_DAO.StudentDAO"></jsp:useBean>
+<jsp:useBean id="bean" class="TNT_Bean.StaffBean"></jsp:useBean>
+<jsp:useBean id="TNT" class="TNT_DAO.StaffDAO"></jsp:useBean>
 <jsp:setProperty property="*" name="bean" />
 <jsp:setProperty property="*" name="TNT" />
 
@@ -30,7 +30,7 @@
    }
    
    else if (action.equals("check1")) {
-         if (TNT.funcStudent_check(bean.getStudent_id())==0){
+         if (TNT.funcstaff_check(bean.getStaff_id())==0){
             out.println("<script>alert('ok');history.back();</script>");   
             
          }   else

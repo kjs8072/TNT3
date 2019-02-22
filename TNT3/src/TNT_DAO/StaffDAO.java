@@ -52,7 +52,7 @@ public class StaffDAO {
 
 	public ArrayList<StaffBean> getInfoList(String staffid) {
 		connect();
-		String sql = "select staff_id, staff_name, staff_birth, staff_gender, staff_phone, staff_address, staff_responsibility"
+		String sql = "select staff_id, staff_name, staff_birth, staff_gender, staff_phone, staff_address, staff_responsibility, staff_email "
 				+ " from staffs where staff_id=?";
 		ArrayList<StaffBean> list = new ArrayList<>();
 		StaffBean bean = null;
@@ -66,6 +66,7 @@ public class StaffDAO {
 				bean = new StaffBean();
 				bean.setStaff_name(rs.getString("staff_name"));
 				bean.setStaff_birth(rs.getDate("staff_birth"));
+				bean.setStaff_email(rs.getString("staff_email"));
 				bean.setStaff_gender(rs.getString("staff_gender"));
 				bean.setStaff_phone(rs.getString("staff_phone"));
 				bean.setStaff_address(rs.getString("staff_address"));
@@ -158,6 +159,29 @@ public class StaffDAO {
 			return 0;
 		}
 		return result;
+	}
+	
+	public void staffUpdate(StaffBean b, String birth) {
+		connect();
+		CallableStatement cs;
+		String sql = "{call STAFF_UPDATE(?,?,?,?,?,?,?)";
+
+		try {
+			cs = conn.prepareCall(sql);
+			
+			cs.setString(1, b.getStaff_id());
+			cs.setString(2, b.getStaff_name());
+			cs.setString(3, birth);
+			cs.setString(4, b.getStaff_gender());
+			cs.setString(5, b.getStaff_phone());
+			cs.setString(6, b.getStaff_address());
+			cs.setString(7, b.getStaff_email());
+			cs.execute();
+			
+			cs.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

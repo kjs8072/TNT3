@@ -1,20 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
    pageEncoding="EUC-KR"%>
-<%@ page import="java.util.ArrayList, TNT_Bean.*, TNT_DAO.*"%>
+<%@ page import="java.util.ArrayList"%>
 
-<jsp:useBean id="bean" class="TNT_Bean.StaffBean"></jsp:useBean>
-<jsp:useBean id="TNT" class="TNT_DAO.StaffDAO"></jsp:useBean>
+<jsp:useBean id="bean" class="TNT_Bean.StudentBean"></jsp:useBean>
 <jsp:setProperty property="*" name="bean" />
-<jsp:setProperty property="*" name="TNT" />
+
+<jsp:useBean id="tnt" class="TNT_DAO.StudentDAO"></jsp:useBean>
 
 <%
    request.setCharacterEncoding("UTF-8");
    String action = request.getParameter("action");
 
    if (action.equals("insert")) {
-      TNT.insertDB(bean);
-      out.println("<script>alert('회원가입이 되었습니다!!'); location.href='/TNT3/index.jsp';</script>");
-
+	   tnt.insertDB(bean);
+	   out.println("<script>alert('회원가입이 되었습니다!!'); location.href='/TNT3/index.jsp';</script>");
+	 //  response.sendRedirect(request.getContextPath()+"/Login_form/Login_form.jsp");
+	
    }
    /* else if
    
@@ -24,13 +25,12 @@
           */
    /* } */
    else if (action.equals("login")) {
-      //   bean.insertDB(TNT);
       response.sendRedirect("login_control.jsp");
 
    }
    
    else if (action.equals("check1")) {
-         if (TNT.funcstaff_check(bean.getStaff_id())==0){
+         if (tnt.funcStudent_check(bean.getStudent_id())==0){
             out.println("<script>alert('ok');history.back();</script>");   
             
          }   else

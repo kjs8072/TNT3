@@ -3,5 +3,5 @@
 
 <%
 	session.invalidate();
-response.sendRedirect("/TNT2/index.jsp");
+response.sendRedirect(request.getContextPath()+"/index.jsp");
 %>

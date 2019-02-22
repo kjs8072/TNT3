@@ -79,7 +79,7 @@ tr:nth-child(even) {
 
 		int subjectNum = Integer.parseInt(request.getParameter("action"));
 
-		TestvuBean testvu = new TestvuBean();
+		//TestvuBean testvu = new TestvuBean();
 		StudentDAO tnt = new StudentDAO();
 
 		list = tnt.getScore(subjectNum);

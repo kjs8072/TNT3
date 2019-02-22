@@ -106,7 +106,7 @@
 						</div>
 						<h3>
 							<a
-								href="<%=request.getContextPath()%>/staff/staff_control.jsp?action=list">학생조회
+								href="<%=request.getContextPath()%>/Staff_login/staff_control.jsp?action=list">학생조회
 							</a>
 						</h3>
 					</div>
@@ -119,7 +119,7 @@
 						</div>
 						<h3>
 							<a
-								href="<%=request.getContextPath()%>/staff/staff_control.jsp?action=ranking">성적조회
+								href="<%=request.getContextPath()%>/Staff_login/staff_control.jsp?action=ranking">성적조회
 							</a>
 						</h3>
 					</div>
