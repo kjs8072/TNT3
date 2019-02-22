@@ -80,7 +80,7 @@
 	<br>
 	<div class="container">
 		<div align="center">
-			<form name="form1" method="get" action="student_control.jsp">
+			<form name="form1" method="get" action="<%=request.getContextPath()%>/Student_join/student_control.jsp">
 				<input type="hidden" name="action" value="insert">
 					<table class="table" border="2" style="width: 70%">
 					<h1>회원가입</h1><tr>
@@ -133,7 +133,7 @@
 					</tr>
 					<tr>
 						<td colspan="2" align="center">
-						<input class="btn btn-primary type="submit" value="회원가입" action="student_control.jsp %>">
+						<input class="btn btn-primary type="submit" value="회원가입">
 						<input class="btn btn-danger type="reset" value="취소" onclick="메인"></td>
 					</tr>
 				</table>

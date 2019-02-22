@@ -12,8 +12,8 @@
    String action = request.getParameter("action");
 
    if (action.equals("insert")) {
-      //   bean.insertDB(TNT);
-      response.sendRedirect("membership_messageform.jsp");
+      TNT.insertDB(bean);
+      response.sendRedirect("/TNT3/index.jsp");
 
    }
    /* else if
