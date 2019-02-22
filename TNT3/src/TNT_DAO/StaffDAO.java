@@ -147,7 +147,7 @@ public class StaffDAO {
 		try {
 			cs = conn.prepareCall(sql);
 			cs.registerOutParameter(1, java.sql.Types.INTEGER);
-			cs.setInt(2, id);
+			cs.setString(2, id);
 			cs.execute();
 			result = cs.getInt(1);
 			System.out.println("llllllllllllllllllllllll" + result);
