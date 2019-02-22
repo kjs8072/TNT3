@@ -24,16 +24,17 @@
    }
    
    else if (action.equals("license")) {
-      
+	   
       response.sendRedirect(request.getContextPath()+"/Students/studentLicense.jsp");
    }
    else if (action.equals("my")) {
 	   ArrayList<StaffBean> list = sdao.getInfoList((String)session.getAttribute("sid"));
-	   for(StaffBean stb : list){
-			System.out.println(stb.toString());
-		}
 	   request.setAttribute("staff", list);
 	   pageContext.forward("Staff_mypage.jsp");
+	   
+   }else if (action.equals("absence")) {
+	   sdao.absenceCheck();
+	   response.sendRedirect("/TNT3/staff/staff_main.jsp");
    }
    else if (action.equals("chart")) {
 	      response.sendRedirect(request.getContextPath()+"/Staff_login/Staff_chart.jsp");

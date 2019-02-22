@@ -182,4 +182,17 @@ public class StaffDAO {
 		}
 	}
 
+	public void absenceCheck() {
+		connect();
+		CallableStatement cs;
+		String sql = "{call absent_check()";
+
+		try {
+			cs = conn.prepareCall(sql);
+			cs.execute();
+			cs.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }
