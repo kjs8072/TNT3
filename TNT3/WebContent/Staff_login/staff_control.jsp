@@ -6,8 +6,9 @@
 <jsp:setProperty property="*" name="sdao"></jsp:setProperty>
 
 <jsp:useBean id="bean" class="TNT_Bean.StudentLicenseVuBean"></jsp:useBean>
-<jsp:useBean id="TNT" class="TNT_DAO.StudentDAO"></jsp:useBean>
 <jsp:setProperty property="*" name="bean" />
+
+<jsp:useBean id="TNT" class="TNT_DAO.StudentDAO"></jsp:useBean>
 <jsp:setProperty property="*" name="TNT" />
 
 <%
@@ -29,12 +30,13 @@
    else if (action.equals("my")) {
 	  ArrayList<StaffBean> list = sdao.getInfoList((String)session.getAttribute("sid"));
 	  request.setAttribute("staff", list);
+	  System.out.println(request.getContextPath());
 	  pageContext.forward(request.getContextPath()+"/Staff_login/Staff_mypage.jsp");
+	  //pageContext.forward("Staff_mypage.jsp");
    }
    else if (action.equals("chart")) {
-	      
 	      response.sendRedirect(request.getContextPath()+"/Staff_login/Staff_chart.jsp");
-	   }
+   }
    //    if (action.equals("insert")) {
    //       //   bean.insertDB(TNT);
    //       response.sendRedirect("membership_messageform.jsp");
