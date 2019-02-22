@@ -18,7 +18,7 @@
 		if (res.equals("student")) {
 			if (dao.funcStudent(bean.getUserid(), bean.getPasswd())) {
 				session.setAttribute("sid", bean.getUserid());
-				response.sendRedirect("/TNT2/student_login/student_main.jsp"); //메인주소로 해놓기
+				response.sendRedirect(request.getContextPath()+"/student_login/student_main.jsp"); //메인주소로 해놓기
 			} else
 				out.println("<script>alert('Login Fail');history.back();</script>");
 
