@@ -15,6 +15,18 @@
             document.form1.submit();
        }
    }
+   function pass_check() {
+		var password = document.getElementById("student_pw").value;
+		var passCheck = document.getElementById("student_pw1").value;
+
+		if (passCheck == "") {
+			document.document.getElementById("passCheckText").innerHTML = ""
+		} else if (student_pw != student_pw1) {
+			document.document.getElementById("passCheckText").innerHTML = "<b><font color=blue size=5pt"> not ok pw. </font></b>"
+		} else {
+			document.document.getElementById("passCheckText").innerHTML = "<b><font color=red size=5pt> OK pw. </font></b>"
+		}
+	}
 </script>
 <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -79,7 +91,7 @@
           
                         <th class="join_title"><label for="pswd1">비밀번호</label></th>
                         <span class="ps_box int_pass" id="pswd1Img">
-                     <td><input type="password" id="student_pw" name="student_pw" 
+                     <td><input type="password" id="student_pass" name="student_pass" 
                      class="int" title="비밀번호 입력" aria-describedby="pswd1Msg" maxlength="20"></td>
                         <span class="error_next_box" id="pswd1Msg" style="display:none" role="alert">5~12자의 영문 소문자, 숫자와 특수기호(_)만 사용 가능합니다.</span>
                         

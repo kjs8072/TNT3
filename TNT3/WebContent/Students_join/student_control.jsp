@@ -12,8 +12,10 @@
    String action = request.getParameter("action");
 
    if (action.equals("insert")) {
-      response.sendRedirect("membership_messageform.jsp");
-
+	   tnt.insertDB(bean);
+	   out.println("<script>alert('회원가입이 되었습니다!!'); location.href='/TNT3/index.jsp';</script>");
+	 //  response.sendRedirect(request.getContextPath()+"/Login_form/Login_form.jsp");
+	
    }
    /* else if
    

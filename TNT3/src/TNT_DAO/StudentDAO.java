@@ -275,8 +275,8 @@ public class StudentDAO {
 
 	public boolean insertDB(StudentBean membership) {
 		connect();
-		String sql = "insert into students (student_id,student_pw,student_name,sysdate,student_gender,student_phone,student_address,student_complete_edu,student_univ_coll,student_major)"
-				+ " values (?,?,?,?,?,?,?,?,?) ";
+		String sql = "insert into students (student_id,student_pass,student_name,student_birth,student_gender,student_phone,student_address,student_complete_edu,student_univ_coll,student_major)"
+				+ " values (?,?,?,sysdate,?,?,?,?,?,?) ";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, membership.getStudent_id());
