@@ -26,11 +26,13 @@ function number_format(number, decimals, dec_point, thousands_sep) {
   }
   return s.join(dec);
 }
+
 $(function(){
 	var jsonLabel = new Array();// ["Direct", "Referral", "Social"];
 	var jsonData = new Array();//[43, 34, 23];
+	//var url = "<%=request.getContextPath()%>/ChartControl";
 	$.ajax({
-		url:"/TNT2/ChartControl",
+		url:"/TNT3/ChartControl",
 		type:"post",
 		success: function(result){
 			console.log(result);

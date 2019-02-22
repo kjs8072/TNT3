@@ -146,7 +146,7 @@
 						</div>
 						<h3>
 							<a
-								href="<%=request.getContextPath()%>/staff/staff_control.jsp?action=chart">Chart
+								href="<%=request.getContextPath()%>/Staff_login/staff_control.jsp?action=chart">Chart
 							</a>
 						</h3>
 					</div>

@@ -5,8 +5,9 @@ Chart.defaults.global.defaultFontColor = '#858796';
 $(function(){
 	var jsonLabel = new Array();// ["Direct", "Referral", "Social"];
 	var jsonData = new Array();//[43, 34, 23];
+	//var url = "<%=request.getContextPath()%>/ChartControl";
 	$.ajax({
-		url:"/TNT2/ChartControl",
+		url:"/TNT3/ChartControl",
 		type:"post",
 		success: function(result){
 			console.log(result);
