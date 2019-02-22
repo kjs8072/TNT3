@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-   pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+   pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,18 +8,31 @@
       var msg=document.getElementById("student_id").value;
       console.log(msg);
        if (msg==""){
-          alert("¾ÆÀÌµğ¸¦ ÀÔ·ÂÇÏ¼¼¿ä.")
+          alert("ì•„ì´ë””ë¥¼ ì…ë ¥í•˜ì„¸ìš”.")
           return;
        }else{
             document.form1.action.value = "check1";
             document.form1.submit();
        }
    }
+   function pass_check() {
+		var password = document.getElementById("student_pw").value;
+		var passCheck = document.getElementById("student_pw1").value;
+
+		if (passCheck == "") {
+			document.document.getElementById("passCheckText").innerHTML = ""
+		} else if (student_pw != student_pw1) {
+			document.document.getElementById("passCheckText").innerHTML = "<b><font color=blue size=5pt"> not ok pw. </font></b>"
+		} else {
+			document.document.getElementById("passCheckText").innerHTML = "<b><font color=red size=5pt> OK pw. </font></b>"
+		}
+	}
 </script>
 <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
+  <meta charset="UTF-8">
  <!-- Bootstrap core CSS -->
   <link href="<%= request.getContextPath() %>/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -30,7 +43,7 @@
 
   <!-- Custom styles for this template -->
   <link href="<%= request.getContextPath() %>/css/landing-page.min.css" rel="stylesheet">
-<title>Ãâ°á°ü¸®</title>
+<title>í•™ìƒíšŒì›ê°€ì…</title>
 <script src="lcs_nclicks.js"></script>
 <script src="clickcr.js"></script>
 </head>
@@ -56,79 +69,95 @@
     <div class="overlay"></div>
     <div class="container">
        <div class="row"> 
-        <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-        </div>
+        <div class="col-md-10 col-lg-8 col-xl-7 mx-auto"></div>
       </div>
     </div>
   </header>
   <br>
- 
+ 	<style>
+ 	ul {
+   border: 1px solid #bcbcbc;
+   }
+ul.a {
+   text-align: center;
+   }
+ul.b {
+   width: 300px;
+   margin-left: auto;
+   margin-right: auto;
+   }
+ul.c {
+   display: table;
+   margin-left: auto;
+   margin-right: auto;
+   }
+ 	</style>
     <div class="container">
     <div align="center">
    <form name="form1" method="get" action="student_control.jsp">
       <input type="hidden" name="action" value="insert">
       <table class="table" border="2" style="width:70%">
-         <h1>È¸¿ø°¡ÀÔ</h1>
+         <h1>íšŒì›ê°€ì…</h1>
          <tr>
-            <th>¾ÆÀÌµğ</th>
+            <th>ì•„ì´ë””</th>
             <td><input type="text" id="student_id" name="student_id" required>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-            <input class="btn btn-primary" type="button" value="Áßº¹È®ÀÎ"
+            <input class="btn btn-primary" type="button" value="ì¤‘ë³µí™•ì¸"
                onclick="stud_check()"></td>
          </tr>
          <tr>
           
-                        <th class="join_title"><label for="pswd1">ºñ¹Ğ¹øÈ£</label></th>
+                        <th class="join_title"><label for="pswd1">ë¹„ë°€ë²ˆí˜¸</label></th>
                         <span class="ps_box int_pass" id="pswd1Img">
-                     <td><input type="password" id="student_pw" name="student_pw" 
-                     class="int" title="ºñ¹Ğ¹øÈ£ ÀÔ·Â" aria-describedby="pswd1Msg" maxlength="20"></td>
-                        <span class="error_next_box" id="pswd1Msg" style="display:none" role="alert">5~12ÀÚÀÇ ¿µ¹® ¼Ò¹®ÀÚ, ¼ıÀÚ¿Í Æ¯¼ö±âÈ£(_)¸¸ »ç¿ë °¡´ÉÇÕ´Ï´Ù.</span>
+                     <td><input type="password" id="student_pass" name="student_pass" 
+                     class="int" title="ë¹„ë°€ë²ˆí˜¸ ì…ë ¥" aria-describedby="pswd1Msg" maxlength="20"></td>
+                        <span class="error_next_box" id="pswd1Msg" style="display:none" role="alert">5~12ìì˜ ì˜ë¬¸ ì†Œë¬¸ì, ìˆ«ìì™€ íŠ¹ìˆ˜ê¸°í˜¸(_)ë§Œ ì‚¬ìš© ê°€ëŠ¥í•©ë‹ˆë‹¤.</span>
                         
                </span>
                </tr>
                <tr>
-                        <th class="join_title"><label for="pswd2">ºñ¹Ğ¹øÈ£ ÀçÈ®ÀÎ</label></th></td>
+                        <th class="join_title"><label for="pswd2">ë¹„ë°€ë²ˆí˜¸ ì¬í™•ì¸</label></th></td>
                         <span class="ps_box int_pass_check" id="pswd2Img">
-                     <td><input type="password" id="student_pw1" name="student_pw1" class="int" title="ºñ¹Ğ¹øÈ£ ÀçÈ®ÀÎ ÀÔ·Â" aria-describedby="pswd2Blind" maxlength="20">
-                     <span id="pswd2Blind" class="wa_blind" style="display:none">¼³Á¤ÇÏ·Á´Â ºñ¹Ğ¹øÈ£°¡ ¸Â´ÂÁö È®ÀÎÇÏ±â À§ÇØ ´Ù½Ã ÀÔ·Â ÇØÁÖ¼¼¿ä.</span></td>
+                     <td><input type="password" id="student_pw1" name="student_pw1" class="int" title="ë¹„ë°€ë²ˆí˜¸ ì¬í™•ì¸ ì…ë ¥" aria-describedby="pswd2Blind" maxlength="20">
+                     <span id="pswd2Blind" class="wa_blind" style="display:none">ì„¤ì •í•˜ë ¤ëŠ” ë¹„ë°€ë²ˆí˜¸ê°€ ë§ëŠ”ì§€ í™•ì¸í•˜ê¸° ìœ„í•´ ë‹¤ì‹œ ì…ë ¥ í•´ì£¼ì„¸ìš”.</span></td>
                   </span>
                         <span class="error_next_box" id="pswd2Msg" style="display:none" role="alert"></span>
                    
                 
          </tr>
          <tr>
-            <th>ÀÌ¸§</th>
+            <th>ì´ë¦„</th>
             <td colspan="2"><input type="text" name="student_name" required></td>
          </tr>
          <tr>
-            <th>¼ºº°</th>
+            <th>ì„±ë³„</th>
             
-            <td colspan="2"><input type="radio" name="gender" value="³²ÀÚ" checked>³²ÀÚ
-               <input type="radio" name="gender" value="¿©ÀÚ">¿©ÀÚ</td>
+            <td colspan="2"><input type="radio" name="gender" value="ë‚¨ì" checked>ë‚¨ì
+               <input type="radio" name="gender" value="ì—¬ì">ì—¬ì</td>
          </tr>
          <tr>
-            <th>ÇÚµåÆù¹øÈ£</th>
+            <th>í•¸ë“œí°ë²ˆí˜¸</th>
             <td colspan="2"><input type="text" name="student_phone"
                required></td>
          </tr>
          <tr>
-            <th>ÁÖ¼Ò</th>
+            <th>ì£¼ì†Œ</th>
             <td colspan="2"><input type="text" name="student_adress"
                required></td>
          </tr>
          <tr>
-            <th>ÇĞ±³</th>
+            <th>í•™êµ</th>
             <td colspan="2"><input type="text" name="student_univ_coll"
                required></td>
          </tr>
          <tr>
-            <th>ÇĞ°ú</th>
+            <th>í•™ê³¼</th>
             <td colspan="2"><input type="text" name="student_major"
                required></td>
          </tr>
          <tr>
-            <td colspan="2" align="center"><input type="submit"
-               value="È¸¿ø°¡ÀÔ" action="student_control.jsp %>">
-               <input type="reset" value="Ãë¼Ò" onclick="¸ŞÀÎ">
+            <td colspan="2" align="center"><input class="btn btn-primary" type="submit"
+               value="íšŒì›ê°€ì…" action="student_control.jsp %>">
+               <input class="btn btn-primary" type="reset" value="ì·¨ì†Œ" onclick="ë©”ì¸">
                </td></tr>
       </table>
    </form></div></div>

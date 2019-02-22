@@ -13,7 +13,7 @@
 
    if (action.equals("insert")) {
       TNT.insertDB(bean);
-      response.sendRedirect("/TNT3/index.jsp");
+      out.println("<script>alert('회원가입이 되었습니다!!'); location.href='/TNT3/index.jsp';</script>");
 
    }
    /* else if
