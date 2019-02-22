@@ -110,23 +110,10 @@ tr:nth-child(even) {
 					<div class="row">
 						<div class="col-xl-9 mx-auto">
 							<h1 class="mb-5">
-								<!-- 중앙img / STAFF MAIN으로 이동하기 -->
-								<a>학생 성적 정보</a>
+								<a>교육과정</a>
 							</h1>
 						</div>
 						<div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-							<form>
-								<div class="form-row">
-									<%--	<div class="col-12 col-md-9 mb-2 mb-md-0">
-								<input type="text" class="form-control form-control-lg"
-									placeholder="Enter your email...">
-							</div>
-							<div class="col-12 col-md-3">
-								<button type="submit" class="btn btn-block btn-lg btn-primary"
-									href="TNT_control.jsp?action=attendance">Sign up!</button>
-							</div> --%>
-								</div>
-							</form>
 						</div>
 					</div>
 				</div>
@@ -139,7 +126,6 @@ tr:nth-child(even) {
 				</div>
 				<div class="card-body">
 					<div class="table-responsive">
-
 						<table id="dataTable" border="1" align="center">
 							<thead>
 								<tr>
@@ -164,7 +150,8 @@ tr:nth-child(even) {
 									<td><%=courseVu.getCourse_name()%></td>
 									<td><%=courseVu.getCourse_contents()%></td>
 									<td><a
-										href="<%=request.getContextPath()%>/Staff/attendance_list.jsp"></td>
+										href="<%=request.getContextPath()%>/Students/attendance_list.jsp?action=
+										<%=courseVu.getSubject_num()%>" /><%=courseVu.getSubject_name()%></td>
 									<td><%=courseVu.getSubject_division()%></td>
 									<td><%=courseVu.getSubject_contents()%></td>
 									<td><%=courseVu.getDetail_method()%></td>
@@ -177,13 +164,7 @@ tr:nth-child(even) {
 								<%
 									}
 								%>
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+							</tbody></table></div></div></div></div></div>
 	<!-- Page level plugins -->
 	<script
 		src="<%=request.getContextPath()%>/vendor/datatables/jquery.dataTables.min.js"></script>

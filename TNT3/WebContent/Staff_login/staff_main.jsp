@@ -94,7 +94,7 @@
 						</div>
 						<h3>
 							<a
-								href="<%=request.getContextPath()%>/staff/staff_control.jsp?action=my">MyPage</a>
+								href="<%=request.getContextPath()%>/Staff_login/staff_control.jsp?action=my">MyPage</a>
 						</h3>
 					</div>
 				</div>

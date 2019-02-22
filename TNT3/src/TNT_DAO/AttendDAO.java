@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import TNT_Bean.AttendBean;
+import TNT_Bean.RankBean;
 
 public class AttendDAO {
 	Connection conn = null;
@@ -245,28 +246,31 @@ public class AttendDAO {
 		return ltime;
 	}
 	
-	public ArrayList<AttendBean> AttendList(String stuid) {
+	public ArrayList<AttendBean> getCourseAttendance(int subject_num) {
 		connect();
+		CallableStatement cs;
 
-		String sql = "select * from attendance_managements where student_id=?";
+		String sql = "{call COURSES_ATTENDANCE(?, ?)}";
 		ArrayList<AttendBean> list = new ArrayList<>();
 		AttendBean bean = null;
 
 		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, stuid);
+			cs = conn.prepareCall(sql);
+			cs.setInt(1, subject_num);
+			cs.registerOutParameter(2, oracle.jdbc.OracleTypes.CURSOR);
+			cs.execute();
+			ResultSet rs = (ResultSet) cs.getObject(2);
 
 			while (rs.next()) {
-				bean = new RankBean();
-				bean.setStudent_name(rs.getString("student_name"));
-				bean.setCourse_name(rs.getString("course_name"));
-				bean.setSubject_name(rs.getString("subject_name"));
-				bean.setScore(rs.getString("score"));
-				bean.setTest_date(rs.getString("test_date"));
-				bean.setTest_division(rs.getString("test_division"));
-				bean.setTest_result(rs.getString("test_result"));
-				bean.setStudent_rank(rs.getString("student_rank"));
-
+				bean = new AttendBean();
+				bean.setAttendance_date(rs.getString("attendance_date"));
+				bean.setAttendance_division(rs.getString("attendance_division"));
+				bean.setEntering_time(rs.getString("entering_time"));
+				bean.setLeaving_time(rs.getString("leaving_time"));
+				bean.setOutgo_time(rs.getString("outgo_time"));
+				bean.setReturn_time(rs.getString("return_time"));
+				bean.setStudent_id(rs.getString("student_id"));
+				
 				list.add(bean);
 			}
 

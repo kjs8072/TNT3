@@ -27,31 +27,11 @@
       response.sendRedirect(request.getContextPath()+"/Students/studentLicense.jsp");
    }
    else if (action.equals("my")) {
-	  ArrayList<StaffBean> list = sdao.getInfoList((String)session.getAttribute("sid"));
-	  request.setAttribute("staff", list);
-	  pageContext.forward(request.getContextPath()+"/Staff_login/Staff_mypage.jsp");
+	   ArrayList<StaffBean> list = sdao.getInfoList((String)session.getAttribute("sid"));
+	   request.setAttribute("staff", list);
+	   pageContext.forward("Staff_mypage.jsp");
    }
    else if (action.equals("chart")) {
-	      
 	      response.sendRedirect(request.getContextPath()+"/Staff_login/Staff_chart.jsp");
 	   }
-   //    if (action.equals("insert")) {
-   //       //   bean.insertDB(TNT);
-   //       response.sendRedirect("membership_messageform.jsp");
-   //    }
-   //    /* else if (action.equals("main")) {
-   //    //   bean.insertDB(TNT);
-   //          response.sendRedirect("메인화면 공백.jsp");
-   //           */
-   //    /* } */
-   //    else if (action.equals("login")) {
-   //       //   bean.insertDB(TNT);
-   //       response.sendRedirect("login_control.jsp");
-   //    }
-   //    else if (action.equals("check2")) {
-   //       if (bean.funcstaff_check(TNT.getStaff_id()) == 0) {
-   //          out.println("<script>alert('ok');history.back();</script>");
-   //       } else
-   //          out.println("<script>alert('no');history.back();</script>");
-   //   }
 %>
