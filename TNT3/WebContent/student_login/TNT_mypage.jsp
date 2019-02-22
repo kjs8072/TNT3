@@ -26,7 +26,7 @@
 
 	<!-- Custom styles for this template -->
 	<link href="<%= request.getContextPath() %>/css/landing-page.min.css" rel="stylesheet">
-	<title>출결관리</title>
+	<title>Mypage</title>
 </head>
 
 <body>
@@ -81,16 +81,16 @@
 				if(ab.getStudent_gender() == null || ab.getStudent_gender().equals("MALE")) {
 		%>
 					<td>
-						<div class="radio"><label><input type="radio" name="student_gender" value="남자" checked>남자</label>
-							<label><input type="radio" name="student_gender" value="여자">여자</label></div>
+						<div class="radio"><label><input type="radio" name="student_gender" value="MALE" checked>남자</label>
+							<label><input type="radio" name="student_gender" value="FEMALE">여자</label></div>
 					</td>
 				</tr>
 			<%
-				} else if(ab.getStudent_gender().equals("FEMALE")){
+				} else {
 			%>
 				<td>
-					<div class="radio"><label><input type="radio" name="student_gender" value="남자" >남자</label>
-						<label><input type="radio" name="student_gender" value="여자" checked>여자</label></div>
+					<div class="radio"><label><input type="radio" name="student_gender" value="MALE" >남자</label>
+						<label><input type="radio" name="student_gender" value="FEMALE" checked>여자</label></div>
 				</td>
 				</tr>
 			<%
@@ -113,7 +113,7 @@
 
 				<tr>
 					<th>학교</th>
-					<td><input type="text" name="student_student_univ_coll" value="<%=ab.getStudent_univ_coll() %>"
+					<td><input type="text" name="student_univ_coll" value="<%=ab.getStudent_univ_coll() %>"
 							style="width:100%"></td>
 				</tr>
 
@@ -132,5 +132,4 @@
 		</div>
 	</form>
 </body>
-
 </html>
