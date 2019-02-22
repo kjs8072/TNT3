@@ -90,7 +90,7 @@ public class StudentDAO {
 
 	public ArrayList<StudentBean> getInfoList(String stdid) {
 		connect();
-		String sql = "select student_id, student_name, student_birth, student_gender, student_phone, student_address, student_univ_coll, student_major "
+		String sql = "select * "
 				+ " from students where student_id=?";
 
 		ArrayList<StudentBean> list = new ArrayList<>();
@@ -109,10 +109,12 @@ public class StudentDAO {
 				bean.setStudent_phone(rs.getString("student_phone"));
 				bean.setStudent_address(rs.getString("student_address"));
 				bean.setStudent_univ_coll(rs.getString("student_univ_coll"));
+				bean.setStudent_complete_edu(rs.getString("student_complete_edu"));
 				bean.setStudent_major(rs.getString("student_major"));
 				bean.setStudent_id(rs.getString("student_id"));
 				list.add(bean);
 			}
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -263,8 +265,6 @@ public class StudentDAO {
 			cs.setString(2, id);
 			cs.execute();
 			result = cs.getInt(1);
-			System.out.println("llllllllllllllllllllllll" + result);
-//	         System.out.println(cs.getInt(1) + " => success ");
 			cs.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -306,10 +306,6 @@ public class StudentDAO {
 
 		try {
 			cs = conn.prepareCall(sql);
-			/*
-			 * SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd"); Date
-			 * d_birth = (Date) transFormat.parse(birth);
-			 */
 			
 			cs.setString(1, b.getStudent_id());
 			cs.setString(2, b.getStudent_name());
@@ -322,7 +318,6 @@ public class StudentDAO {
 			cs.setString(9, b.getStudent_major());
 			cs.execute();
 			
-			System.out.println("======================" + b.getStudent_name() + "---" + birth);
 			cs.close();
 		} catch (SQLException e) {
 			e.printStackTrace();

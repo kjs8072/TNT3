@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="TNT_Bean.*, java.util.*" %>
+
 <jsp:useBean id="staff" class="java.util.ArrayList" scope="request"></jsp:useBean>
 <jsp:setProperty property="*" name="staff"></jsp:setProperty>
 
@@ -12,22 +13,22 @@
   <meta name="description" content="">
   <meta name="author" content="">
  <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="<%= request.getContextPath() %>/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom fonts for this template -->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
-  <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+  <link href="<%= request.getContextPath() %>/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="<%= request.getContextPath() %>/vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
   <!-- Custom styles for this template -->
-  <link href="css/landing-page.min.css" rel="stylesheet">
+  <link href="<%= request.getContextPath() %>/css/landing-page.min.css" rel="stylesheet">
 <title>교직원관리</title>
 </head>
 <body>
 <!-- Navigation -->
   <nav class="navbar navbar-light bg-light static-top">
 		<div class="container">
-			<a class="navbar-brand" href="<%= request.getContextPath() %>/student_login/student_main.jsp" style="color:blue">TUTER & TUTEE</a>
+			<a class="navbar-brand" href="<%= request.getContextPath() %>/staff/staff_main.jsp" style="color:blue">TUTER & TUTEE</a>
 			<%
            		if(session.getAttribute("sid") ==null){
       		%>
@@ -52,7 +53,7 @@
     </div>
   </header>
   <br>
-<form method="post" action="<%= request.getContextPath() %>/Staff_mail_control.jsp?action=update">
+<form method="post" action="<%= request.getContextPath() %>/Staff_login/Staff_main_control.jsp?action=update">
 <div class="table-responsive">
 <table class="table" border="1" align="center" style="width:50%">
 		<%

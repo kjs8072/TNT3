@@ -2,6 +2,9 @@
    pageEncoding="EUC-KR"%>
 <%@ page import="java.util.ArrayList, TNT_Bean.*, TNT_DAO.*"%>
 
+<jsp:useBean id="sdao" class="TNT_DAO.StaffDAO"></jsp:useBean>
+<jsp:setProperty property="*" name="sdao"></jsp:setProperty>
+
 <jsp:useBean id="bean" class="TNT_Bean.StudentLicenseVuBean"></jsp:useBean>
 <jsp:useBean id="TNT" class="TNT_DAO.StudentDAO"></jsp:useBean>
 <jsp:setProperty property="*" name="bean" />
@@ -24,8 +27,9 @@
       response.sendRedirect(request.getContextPath()+"/Students/studentLicense.jsp");
    }
    else if (action.equals("my")) {
-      
-      response.sendRedirect(request.getContextPath()+"/Staff_login/Staff_mypage.jsp");
+	  ArrayList<StaffBean> list = sdao.getInfoList((String)session.getAttribute("sid"));
+	  request.setAttribute("staff", list);
+	  pageContext.forward(request.getContextPath()+"/Staff_login/Staff_mypage.jsp");
    }
    else if (action.equals("chart")) {
 	      

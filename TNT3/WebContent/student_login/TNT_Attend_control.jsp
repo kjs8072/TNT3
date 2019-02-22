@@ -60,9 +60,9 @@
 		
 	} else if(action.equals("mypage")){
 		ArrayList<StudentBean> list = sdao.getInfoList((String)session.getAttribute("sid"));
-		for(StudentBean stb : list){
+		/* for(StudentBean stb : list){
 			System.out.println(stb.toString());
-		}
+		} */
 		request.setAttribute("stu", list);		//요청 페이지에 값을 setting. list에 있는 값을 "stu"에 넣어서 TNT_mypage.jsp에 값을 넘김
 		pageContext.forward("TNT_mypage.jsp");
 		
@@ -84,12 +84,9 @@
 		pageContext.forward("TNT_Attend_control.jsp?action=attend_out");
 		
 	} else if(action.equals("update")){		//mypage 수정
-
-		System.out.println("11111"+stubean);
 		stubean.setStudent_id((String)session.getAttribute("sid"));
-		System.out.println("22222"+stubean);
 		String birth = (String)request.getParameter("student_birth1");
 		sdao.studentUpdate(stubean, birth);
-		response.sendRedirect("TNT_Attend_control.jsp?action=attendance");
+		response.sendRedirect("/TNT3/student_login/student_main.jsp");
 	}
 %>

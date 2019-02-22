@@ -33,7 +33,7 @@
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">환영합니다!!</h1>
                   </div>
-                  <form class="user" method="post" action="Login_control.jsp">
+                  <form class="user" method="post" action="<%= request.getContextPath() %>/Login_form/Login_control.jsp">
                   	<input type="hidden" name="action" value="login">
                     <div class="form-group">
                       <input type="text" class="form-control form-control-user" id="exampleInputEmail" name="userid" aria-describedby="emailHelp" placeholder="Enter User Id...">

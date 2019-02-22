@@ -25,7 +25,7 @@
 		}else if (res.equals("staff")) {
 			if (dao.funcStaff(bean.getUserid(), bean.getPasswd())) {
 				session.setAttribute("sid", bean.getUserid());
-				response.sendRedirect("/TNT2/staff/staff_main.jsp");
+				response.sendRedirect(request.getContextPath()+"/staff/staff_main.jsp");
 			}
 			else
 				out.println("<script>alert('Login Fall');history.back();</script>");
