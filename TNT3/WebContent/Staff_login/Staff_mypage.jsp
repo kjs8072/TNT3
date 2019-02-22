@@ -65,20 +65,20 @@
 		<tr>
 		<tr>
 			<th>생일</th>
-			<td><input type="date" name="staff_birth" value="<%=sb.getStaff_birth() %>" style="width:100%"></td></tr>
+			<td><input type="date" name="staff_birth1" value="<%=sb.getStaff_birth() %>" style="width:100%"></td></tr>
 		<tr>
 		<tr>
 			<th>성별</th>
 			<%
-				if(sb.getStaff_gender().equals("MALE")) {
+				if(sb.getStaff_gender() == null ||sb.getStaff_gender().equals("MALE")) {
 			%>
-			<td><div class="radio"><label><input type="radio" name="staff_gender" value="남자" checked>남자</label> 
-			<label><input type="radio"name="staff_gender" value="여자">여자</label></div></td></tr>
+			<td><div class="radio"><label><input type="radio" name="staff_gender" value="MALE" checked>남자</label> 
+			<label><input type="radio"name="staff_gender" value="FEMALE">여자</label></div></td></tr>
 			<%
 				} else if(sb.getStaff_gender().equals("FEMALE")){
 			%>
-			<td><div class="radio"><label><input type="radio" name="staff_gender" value="남자" checked>남자</label> 
-			<label><input type="radio"name="staff_gender" value="여자">여자</label></div></td></tr>
+			<td><div class="radio"><label><input type="radio" name="staff_gender" value="MALE">남자</label> 
+			<label><input type="radio"name="staff_gender" value="FEMALE" checked>여자</label></div></td></tr>
 			<%
 				}
 			%>

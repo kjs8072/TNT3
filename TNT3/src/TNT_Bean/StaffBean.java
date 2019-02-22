@@ -3,27 +3,16 @@ package TNT_Bean;
 import java.sql.Date;
 
 public class StaffBean {
-
-	private int staff_num;
 	private String staff_id;
 	private String staff_pass;
 	private String staff_name;
 	private String staff_gender;
-	private String responsibility;
 	private String staff_responsibility;
-	private int Staff_salary;
+	private int staff_salary;
 	private String staff_address;
 	private String staff_phone;
 	private String staff_email;
 	private Date staff_birth;
-
-	public int getStaff_num() {
-		return staff_num;
-	}
-
-	public void setStaff_num(int staff_num) {
-		this.staff_num = staff_num;
-	}
 
 	public String getStaff_id() {
 		return staff_id;
@@ -57,14 +46,6 @@ public class StaffBean {
 		this.staff_gender = staff_gender;
 	}
 
-	public String getResponsibility() {
-		return responsibility;
-	}
-
-	public void setResponsibility(String responsibility) {
-		this.responsibility = responsibility;
-	}
-
 	public String getStaff_responsibility() {
 		return staff_responsibility;
 	}
@@ -74,11 +55,11 @@ public class StaffBean {
 	}
 
 	public int getStaff_salary() {
-		return Staff_salary;
+		return staff_salary;
 	}
 
 	public void setStaff_salary(int staff_salary) {
-		Staff_salary = staff_salary;
+		this.staff_salary = staff_salary;
 	}
 
 	public String getStaff_address() {
@@ -112,5 +93,15 @@ public class StaffBean {
 	public void setStaff_birth(Date staff_birth) {
 		this.staff_birth = staff_birth;
 	}
+
+	@Override
+	public String toString() {
+		return "StaffBean [staff_id=" + staff_id + ", staff_pass=" + staff_pass + ", staff_name=" + staff_name
+				+ ", staff_gender=" + staff_gender + ", staff_responsibility=" + staff_responsibility
+				+ ", staff_salary=" + staff_salary + ", staff_address=" + staff_address + ", staff_phone=" + staff_phone
+				+ ", staff_email=" + staff_email + ", staff_birth=" + staff_birth + "]";
+	}
+
+	
 
 }

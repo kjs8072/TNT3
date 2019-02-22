@@ -99,7 +99,6 @@ public class StaffDAO {
 				bean.setStaff_name(rs.getString("staff_name"));
 				bean.setStaff_address(rs.getString("staff_address"));
 				bean.setStaff_email(rs.getString("staff_email"));
-				bean.setStaff_num(rs.getInt("staff_num"));
 				bean.setStaff_phone(rs.getString("staff_phone"));
 				bean.setStaff_salary(rs.getInt("staff_salary"));
 				bean.setStaff_id(rs.getString("staff_id"));
@@ -115,19 +114,18 @@ public class StaffDAO {
 
 	public boolean insertDB(StaffBean bean) { // »ðÀÔ
 		connect();
-		String sql = "insert into staffs (staff_num,staff_id,staff_pass,staff_name,staff_gender,staff_responsibility,staff_address,staff_phone,staff_email)"
-				+ " values (?,?,?,?,?,?,?,?,?) ";
+		String sql = "insert into staffs (staff_id,staff_pass,staff_name,staff_gender,staff_responsibility,staff_address,staff_phone,staff_email)"
+				+ " values (?,?,?,?,?,?,?,?) ";
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, bean.getStaff_num()); // ex)
-			pstmt.setString(2, bean.getStaff_id());
-			pstmt.setString(3, bean.getStaff_pass());
-			pstmt.setString(4, bean.getStaff_name());
-			pstmt.setString(5, bean.getStaff_gender());
-			pstmt.setString(6, bean.getStaff_responsibility());
-			pstmt.setString(7, bean.getStaff_address());
-			pstmt.setString(8, bean.getStaff_phone());
-			pstmt.setString(9, bean.getStaff_email());
+			pstmt.setString(1, bean.getStaff_id());
+			pstmt.setString(2, bean.getStaff_pass());
+			pstmt.setString(3, bean.getStaff_name());
+			pstmt.setString(4, bean.getStaff_gender());
+			pstmt.setString(5, bean.getStaff_responsibility());
+			pstmt.setString(6, bean.getStaff_address());
+			pstmt.setString(7, bean.getStaff_phone());
+			pstmt.setString(8, bean.getStaff_email());
 			pstmt.executeUpdate();
 
 		} catch (SQLException e) {

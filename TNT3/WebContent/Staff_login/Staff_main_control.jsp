@@ -12,27 +12,20 @@
 <jsp:setProperty property="*" name="sdao"></jsp:setProperty>
 <jsp:setProperty property="*" name="sbean"></jsp:setProperty>
 
-<jsp:useBean id="staffbean" class="TNT_Bean.StaffBean" scope="request"></jsp:useBean>
-<jsp:setProperty name="staffbean" property="*"></jsp:setProperty>
 
 <%
 	request.setCharacterEncoding("UTF-8");
 	String action = request.getParameter("action");
 
 	if (action.equals("mypage")) {
-		ArrayList<StaffBean> list = sdao.getInfoList("19001");
-		request.setAttribute("data", list); //요청 페이지에 값을 setting. list에 있는 값을 "stu"에 넣어서 TNT_mypage.jsp에 값을 넘김
-		pageContext.forward("Staff_mypage.jsp");
-
-	} else if (action.equals("update")) {
-		ArrayList<StaffBean> list = sdao.getInfoList("19001");
-		request.setAttribute("data", list); 
-		pageContext.forward("Staff_mypage_update.jsp");
+		ArrayList<StaffBean> list = sdao.getInfoList((String)session.getAttribute("sid"));
+		request.setAttribute("staff", list);
+		pageContext.forward(request.getContextPath()+"Staff_mypage.jsp");
 
 	} else if(action.equals("update")){		//mypage 수정
-		staffbean.setStaff_id((String)session.getAttribute("sid"));
-		String birth = (String)request.getParameter("student_birth1");
-		sdao.staffUpdate(staffbean, birth);
-		response.sendRedirect("/TNT3/student_login/student_main.jsp");
+		sbean.setStaff_id((String)session.getAttribute("sid"));
+		String birth = (String)request.getParameter("staff_birth1");
+		sdao.staffUpdate(sbean, birth);
+		response.sendRedirect("/TNT3/staff/staff_main.jsp");
 	}
 %>
