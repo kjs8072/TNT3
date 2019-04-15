@@ -94,13 +94,13 @@ ul.c {
  	</style>
     <div class="container">
     <div align="center">
-   <form name="form1" method="get" action="student_control.jsp">
+   <form name="form1" method="post" action="student_control.jsp">
       <input type="hidden" name="action" value="insert">
       <table class="table" border="2" style="width:70%">
          <h1>회원가입</h1>
          <tr>
             <th>아이디</th>
-            <td><input type="text" id="student_id" name="student_id" required>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <td><input type="text" id="student_id" name="student_id" required>
             <input class="btn btn-primary" type="button" value="중복확인"
                onclick="stud_check()"></td>
          </tr>
@@ -131,8 +131,8 @@ ul.c {
          <tr>
             <th>성별</th>
             
-            <td colspan="2"><input type="radio" name="gender" value="남자" checked>남자
-               <input type="radio" name="gender" value="여자">여자</td>
+            <td colspan="2"><input type="radio" name="student_gender" value="MALE" checked>남자
+               <input type="radio" name="gender" value="FEMALE">여자</td>
          </tr>
          <tr>
             <th>핸드폰번호</th>
@@ -141,7 +141,7 @@ ul.c {
          </tr>
          <tr>
             <th>주소</th>
-            <td colspan="2"><input type="text" name="student_adress"
+            <td colspan="2"><input type="text" name="student_address"
                required></td>
          </tr>
          <tr>
